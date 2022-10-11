@@ -3,22 +3,18 @@
 # Covers Full Automation
 
 ## Introduction
-Wasp in a Box is an AppDaemon app for detecting occupancy using multiple sensors.
-
-If the box (door sensor) is open, we assume there is no wasp (person) in the box.  
-If we see a wasp (motion sensor), then there is a wasp in the box.  
-If we close the box, then there is a wasp in the box.  
-If the box has not been opened, we assume the wasp is still in the box.  
-  
-The state of the generated binary sensor can be used for triggering automations.
+Cover Full Automation est une application `AppDaemon` pour `Home Assistant` qui gère vos ouvrants, tel que des volets ou stores en passant par une porte de garage, de façon totalement automatique et simple.
 
 ### Example:
-If someone enters the bathroom and motion is detected, then turn on the light.  
-If the door is closed and motion is detected, then keep the light on as long as the door is closed.  
-If the door is open and no motion is detected, then turn off the light.  
+- Fermer les volets au couché du soleil.
+- Ouvrir le volet si la fenêtre est ouverte.
+- Fermer les volets si la maison est vide.
+- Ouvrir les volets si l'alarme est déclanchée.
+- Fermer les volets si le soleil est présent et chauffe trop la pièce.
+- ... 
 
 ## Installation
-Download the `CoverFullAutomation.py` file to your local `apps` directory, then configure the `wasp` module in `apps.yaml`.
+Téléchargez le fichier `CoverFullAutomation.py` dans votre dossier local `apps` d'AppDaemon et configurez le module dans `apps.yaml`.
 
 ## App configuration
 ```yaml
