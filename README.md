@@ -54,25 +54,33 @@ key | optional | type | default | description
 ### rooms
 key | optional | type | default | description
 -- | -- | -- | -- | --
-`module` | False | string | | The module name of the app.
-`class` | False | string | | The name of the Class.
-`rooms` | False | string | | Liste des pièces.
-`open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants.
-`close` | True | int | 0 | Valeur en pourcentage pour fermer les ouvrants.
-`ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants.
-`active` | True | string | | Interrupteur pour activer/désactiver l’automatisation.
-`alarms` | True | string | | Liste des alarmes pour ouvrir tous volets en cas d’état « Triggered ».
-`presence_entity` | True | string | | Entité qui contient la valeur du mode actuel de la mainson.
-`sun_elevation` | True | int | | Elevation du soleil à laquelle tous les ouvrants s’ouvrent ou se ferment.
-`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour tous les ouvrants.
-`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour tous les ouvrants.
-`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour tous les ouvrants.
-`force_open` | True | string | | Force l’ouverture de tout les ouvrants si une ou plusieurs est active.
-`force_close` | True | string | | Force la fermeture de tout les ouvrants si une ou plusieurs est active.
-`force_ajar` | True | string | | Force l’entrouverture de tout les ouvrants si une ou plusieurs est active.
-`wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, tous les ouvrant ne s’ouvriront qu’au moment où une de celle-ci est activée.
-`take_over_control` | True | string | True | Si un des ouvrants est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
-
-
-
-
+`id de la pièce` | False | | | The module name of the app.
+`covers` | False | | | Liste des ouvrants.
+`open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants de la pièce.
+`close` | True | int | 0 | Valeur en pourcentage pour fermer les ouvrants de la pièce.
+`ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants de la pièce.
+`sun_elevation` | True | int | | Elevation du soleil à laquelle les ouvrants de la pièce s’ouvrent ou se ferment.
+`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour les ouvrants de la pièce.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour les ouvrants de la pièce.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour les ouvrants de la pièce.
+`force_open` | True | string | | Force l’ouverture de tout les ouvrants de la pièce si une ou plusieurs est active.
+`force_close` | True | string | | Force la fermeture de tout les ouvrants de la pièce si une ou plusieurs est active.
+`force_ajar` | True | string | | Force l’entrouverture de tout les ouvrants de la pièce si une ou plusieurs est active.
+`wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, les ouvrant de la pièce ne s’ouvriront qu’au moment où une de celle-ci est activée.
+`take_over_control` | True | string | True | Si un des ouvrants de la pièce est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+### covers
+key | optional | type | default | description
+-- | -- | -- | -- | --
+`cover` | False | | | Entité de l’ouvrant « cover.salon_1 ».
+`open` | True | int | 100 | Valeur en pourcentage pour ouvrir cet ouvrant.
+`close` | True | int | 0 | Valeur en pourcentage pour fermer cet ouvrant.
+`ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir cet ouvrant.
+`sun_elevation` | True | int | | Elevation du soleil à laquelle cet ouvrant s’ouvrent ou se ferment.
+`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour cet ouvrant.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour cet ouvrant.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour cet ouvrant.
+`force_open` | True | string | | Force l’ouverture de cet ouvrant si une ou plusieurs est active.
+`force_close` | True | string | | Force la fermeture de cet ouvrant si une ou plusieurs est active.
+`force_ajar` | True | string | | Force l’entrouverture de cet ouvrant si une ou plusieurs est active.
+`wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, cet ouvrant ne s’ouvrira qu’au moment où une de celle-ci est activée.
+`take_over_control` | True | string | True | Si cet ouvrant est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
