@@ -14,7 +14,7 @@
 - ... 
 
 ### Prérequis
-Vos ouvrants doivent pouvoir être contrôlés via le poucetage d'ouverture `cover.set_cover_position`.
+Vos ouvrants doivent pouvoir être contrôlés via le poucetage d'ouverture `cover.set_cover_position` et avoir un retour de l'état de leur position `current_position` en pourcent.
 
 ## Installation
 Téléchargez le fichier `CoverFullAutomation.py` dans votre dossier local `apps` d'AppDaemon et configurez le module dans `apps.yaml`.
