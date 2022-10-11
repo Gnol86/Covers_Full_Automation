@@ -111,7 +111,7 @@ class CoversFullAutomation(hass.Hass):
       self.debug_log(f'{entity} : {old} -> {new}')
       listCovers = {}
       for cover in self.covers:
-        if entity in self.covers[cover][kwargs["trigger_type"]] or kwargs["trigger_type"] == "sun_elevation":
+        if kwargs["trigger_type"] == "sun_elevation" or entity in self.covers[cover][kwargs["trigger_type"]]:
           listCovers[cover] = self.covers[cover]
       self.setCover(listCovers, kwargs["trigger_type"])
 
@@ -183,14 +183,13 @@ class CoversFullAutomation(hass.Hass):
               new_position =  listCovers[cover]['close']
               reason = f"sun_elevation ({valent} <= {listCovers[cover]['sun_elevation']})"
 
-      self.debug_log('---')
-      self.debug_log(f'  {cover} : {current_position} -> {new_position}')
-      self.debug_log('    position set by :')
-      self.debug_log(f'    {reason}')
-      self.covers[cover]['position'] = new_position
-
       if new_position != current_position:
         self.call_service("cover/set_cover_position", entity_id = cover, position = new_position)
+        self.debug_log('---')
+        self.debug_log(f'  {cover} : {current_position} -> {new_position}')
+        self.debug_log('    position set by :')
+        self.debug_log(f'    {reason}')
+        self.covers[cover]['position'] = new_position
         if self.delay > 0:
           time.sleep(self.delay)
       
