@@ -75,7 +75,7 @@ key | optional | type | default | description
 `open` | True | int | 100 | Valeur en pourcentage pour ouvrir cet ouvrant.
 `close` | True | int | 0 | Valeur en pourcentage pour fermer cet ouvrant.
 `ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir cet ouvrant.
-`sun_elevation` | True | int | | Elevation du soleil à laquelle cet ouvrant s’ouvrent ou se ferment.
+`sun_elevation` | True | int | | Elevation du soleil à laquelle cet ouvrant s’ouvre ou se ferme.
 `ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour cet ouvrant.
 `ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour cet ouvrant.
 `ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour cet ouvrant.
