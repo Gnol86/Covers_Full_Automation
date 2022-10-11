@@ -3,7 +3,7 @@
 # Covers Full Automation
 
 ## Introduction
-`Cover Full Automation` est une application `AppDaemon` pour `Home Assistant` qui gère vos ouvrants, tel que des volets ou stores en passant par une porte de garage, de façon totalement automatique et simple.
+`Cover Full Automation` est une application `AppDaemon` pour `Home Assistant` qui gère vos ouvrants, tel que des volets, stores ou encore une porte de garage, de façon totalement automatique et simple.
 
 ### Examples
 - Fermer les volets au couché du soleil.
