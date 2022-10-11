@@ -69,13 +69,12 @@ class CoversFullAutomation(hass.Hass):
         )
     for trigger_type in self.triggers:
       if trigger_type == 'sun_elevation':
-        for se in self.triggers[trigger_type]:
+        if len(self.triggers['sun_elevation']):
           self.state_handles.append(
             self.listen_state(
               self.callback,
               'sun.sun',
               attribute = "elevation",
-              new=se,
               trigger_type = trigger_type
               )
             )
@@ -112,8 +111,11 @@ class CoversFullAutomation(hass.Hass):
       self.debug_log(f'{entity} : {old} -> {new}')
       listCovers = {}
       for cover in self.covers:
-        if entity in self.covers[cover][kwargs["trigger_type"]]:
-          listCovers[cover] = self.covers[cover]
+        if kwargs["trigger_type"] == "sun_elevation":
+          listCovers = self.covers.copie()
+        else:
+          if entity in self.covers[cover][kwargs["trigger_type"]]:
+            listCovers[cover] = self.covers[cover]
       self.setCover(listCovers, kwargs["trigger_type"])
 
   def setCover(self, listCovers={}, trigger_type="forced"):
