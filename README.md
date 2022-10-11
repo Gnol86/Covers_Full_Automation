@@ -88,7 +88,7 @@ key | optional | type | default | description
 `take_over_control` | True | string | True | Si cet ouvrant est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
 ### Exemple complexe
 ```yaml
-CFA:
+CoversFullAutomation:
   module: CoversFullAutomation
   class: CoversFullAutomation
   debug: true
