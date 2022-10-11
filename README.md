@@ -19,7 +19,8 @@ Vos ouvrants doivent pouvoir être contrôlés via le poucetage d'ouverture `cov
 ## Installation
 Téléchargez le fichier `CoverFullAutomation.py` dans votre dossier local `apps` d'AppDaemon et configurez le module dans `apps.yaml`.
 
-## App configuration
+## Configuration
+### Exemple simple
 ```yaml
 CoversFullAutomation:
   module: CoversFullAutomation
@@ -36,6 +37,7 @@ key | optional | type | default | description
 `module` | False | string | | The module name of the app.
 `class` | False | string | | The name of the Class.
 `rooms` | False | string | | Liste des pièces.
+`debug` | True | boelaen | False | Active le mode débug.
 `open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants.
 `close` | True | int | 0 | Valeur en pourcentage pour fermer les ouvrants.
 `ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants.
@@ -84,3 +86,62 @@ key | optional | type | default | description
 `force_ajar` | True | string | | Force l’entrouverture de cet ouvrant si une ou plusieurs est active.
 `wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, cet ouvrant ne s’ouvrira qu’au moment où une de celle-ci est activée.
 `take_over_control` | True | string | True | Si cet ouvrant est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+### Exemple complexe
+```yaml
+CFA:
+  module: CoversFullAutomation
+  class: CoversFullAutomation
+  debug: true
+  active: input_boolean.volets_automatiques
+  alarms: alarm_control_panel.alarmo
+  presence_entity: zone.home
+  rooms:
+    stores_cuisine:
+      wait_for_open:
+        - binary_sensor.sensor_cuisine_motion
+        - binary_sensor.porte_cuisine_contact
+        - binary_sensor.porte_salon_contact
+      sun_elevation: 2
+      covers:
+        - cover: cover.store_cuisine_1
+          force_open: binary_sensor.fenetre_cuisine_1_contact
+        - cover: cover.store_cuisine_2
+          force_open: binary_sensor.fenetre_cuisine_2_contact
+        - cover: cover.store_cuisine_3
+          force_open: binary_sensor.fenetre_cuisine_3_contact
+    salon:
+      force_ajar: binary_sensor.trop_de_soleil_dans_salon
+      sun_elevation: -2
+      covers:
+        - cover: cover.volet_salon_1
+          force_close: binary_sensor.fenetre_salon_1_contact
+        - cover: cover.volet_salon_2
+          force_open: binary_sensor.fenetre_salon_2_contact
+        - cover: cover.volet_salon_3
+          force_open: binary_sensor.fenetre_salon_3_contact
+        - cover: cover.volet_salon_4
+          force_open: binary_sensor.fenetre_salon_4_contact
+        - cover: cover.volet_salon_5
+          force_open: binary_sensor.fenetre_salon_5_contact
+    cuisine:
+      covers:
+        - cover: cover.volet_cuisine_1
+          force_open: binary_sensor.fenetre_cuisine_1_contact
+        - cover: cover.volet_cuisine_2
+          force_open: binary_sensor.fenetre_cuisine_2_contact
+        - cover: cover.volet_cuisine_3
+          force_open: binary_sensor.fenetre_cuisine_3_contact
+    chambre:
+      ajar: 0
+      force_ajar: binary_sensor.trop_de_soleil_dans_chambre
+      force_close:
+        - input_boolean.arnaud_dort
+        - input_boolean.isabelle_dort
+      covers:
+        - cover: cover.volet_chambre_1
+          force_open: binary_sensor.fenetre_chambre_1_contact
+        - cover: cover.volet_chambre_2
+          force_open: binary_sensor.fenetre_chambre_2_contact
+        - cover: cover.volet_chambre_3
+          force_open: binary_sensor.fenetre_chambre_3_contact
+```
