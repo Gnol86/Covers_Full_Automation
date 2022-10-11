@@ -18,24 +18,37 @@ Téléchargez le fichier `CoverFullAutomation.py` dans votre dossier local `apps
 
 ## App configuration
 ```yaml
-bathroom_wasp:
-  module: wasp
-  class: Wasp
-  device_class: occupancy
-  name: Bathroom Occupancy
-  delay: 5
-  box_sensors:
-    - binary_sensor.bathroom_door_sensor
-  wasp_sensors:
-    - binary_sensor.bathroom_motion_sensor
+CoversFullAutomation:
+  module: CoversFullAutomation
+  class: CoversFullAutomation
+  rooms:
+    living_room:
+      sun_elevation: 2
+      covers:
+        - cover: cover.living
 ```
 
 key | optional | type | default | description
 -- | -- | -- | -- | --
 `module` | False | string | | The module name of the app.
 `class` | False | string | | The name of the Class.
-`device_class` | True | string | occupancy | The device class of the binary sensor.
-`name` | True | string | Defaults to the app name, e.g. Bathroom Wasp | The friendly_name of the sensor. 
-`delay` | True | int | 0 | The number of seconds after closing the box before a wasp will be detected.
-`box_sensors` | False | list | | A list of sensor entity_ids, e.g. door sensors.
-`wasp_sensors` | False | list | | A list of sensor entity_ids, e.g. motion sensors.
+`rooms` | False | string | | Liste des pièces.
+`open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants.
+`close` | True | int | 0 | Valeur en pourcentage pour fermer les ouvrants.
+`ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants.
+`active` | True | string | | Interrupteur pour activer/désactiver l’automatisation.
+`alarms` | True | string | | Liste des alarmes pour ouvrir tous volets en cas d’état « Triggered ».
+`presence_entity` | True | string | | Entité qui contient la valeur du mode actuel de la mainson.
+`sun_elevation` | True | int | | Elevation du soleil à laquelle tous les ouvrants s’ouvrent ou se ferment.
+`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour tous les ouvrants.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour tous les ouvrants.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour tous les ouvrants.
+`force_open` | True | string | | Force l’ouverture de tout les ouvrants si une ou plusieurs est active.
+`force_close` | True | string | | Force la fermeture de tout les ouvrants si une ou plusieurs est active.
+`force_ajar` | True | string | | Force l’entrouverture de tout les ouvrants si une ou plusieurs est active.
+`wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, tous les ouvrant ne s’ouvriront qu’au moment où une de celle-ci est activée.
+`take_over_control` | True | string | True | Si un des ouvrants est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+
+
+
+
