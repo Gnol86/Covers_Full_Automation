@@ -4,7 +4,7 @@ import time
 #
 # Covers Full Automation
 # @gnol86
-# http
+# https://github.com/Gnol86/Covers_Full_Automation
 #
 
 class CoversFullAutomation(hass.Hass):
