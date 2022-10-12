@@ -3,18 +3,18 @@
 # Covers Full Automation
 
 ## Introduction
-`Cover Full Automation` est une application `AppDaemon` pour `Home Assistant` qui gère vos ouvrants, tel que des volets, stores ou encore une porte de garage, de façon totalement automatique et simple.
+`Cover Full Automation` est une application `AppDaemon` pour `Home Assistant` qui gère vos ouvrants, tels que des volets, stores ou encore une porte de garage, de façon totalement automatique et simple.
 
-### Examples
-- Fermer les volets au couché du soleil.
-- Ouvrir le volet si la fenêtre est ouverte.
+### Exemples
+- Fermer les volets au coucher du soleil.
+- Ouvrir le volet si la fenêtre s'ouvre.
 - Fermer les volets si la maison est vide.
-- Ouvrir les volets si l'alarme est déclanchée.
+- Ouvrir les volets si l'alarme est déclenchée.
 - Fermer les volets si le soleil est présent et chauffe trop la pièce.
 - ... 
 
-### Prérequis
-Vos ouvrants doivent pouvoir être contrôlés via le poucetage d'ouverture `cover.set_cover_position` et avoir un retour de l'état de leur position `current_position` en pourcent.
+### Pré-requis
+Vos ouvrants doivent pouvoir être contrôlés via le pourcetage d'ouverture `cover.set_cover_position` et avoir un retour de l'état de leur position `current_position` en pourcent.
 
 ## Installation
 Téléchargez le fichier `CoverFullAutomation.py` dans votre dossier local `apps` d'AppDaemon et configurez le module dans `apps.yaml`.
@@ -34,8 +34,8 @@ CoversFullAutomation:
 ### CoversFullAutomation
 key | optional | type | default | description
 -- | -- | -- | -- | --
-`module` | False | string | | The module name of the app.
-`class` | False | string | | The name of the Class.
+`module` | False | string | | Le nom du module de votre app
+`class` | False | string | | Nom de la class.
 `rooms` | False | string | | Liste des pièces.
 `debug` | True | boelaen | False | Active le mode débug.
 `open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants.
@@ -43,33 +43,33 @@ key | optional | type | default | description
 `ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants.
 `active` | True | string | | Interrupteur pour activer/désactiver l’automatisation.
 `alarms` | True | string | | Liste des alarmes pour ouvrir tous volets en cas d’état « Triggered ».
-`presence_entity` | True | string | | Entité qui contient la valeur du mode actuel de la mainson.
-`sun_elevation` | True | int | | Elevation du soleil à laquelle tous les ouvrants s’ouvrent ou se ferment.
-`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour tous les ouvrants.
-`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour tous les ouvrants.
-`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour tous les ouvrants.
-`force_open` | True | string | | Force l’ouverture de tout les ouvrants si une ou plusieurs est active.
-`force_close` | True | string | | Force la fermeture de tout les ouvrants si une ou plusieurs est active.
-`force_ajar` | True | string | | Force l’entrouverture de tout les ouvrants si une ou plusieurs est active.
+`presence_entity` | True | string | | Entité qui contient la valeur du mode actuel de la maison.
+`sun_elevation` | True | int | | Elévation du soleil à laquelle tous les ouvrants s’ouvrent ou se ferment.
+`ignore_presence` | True | string | False | Définir à « True » pour ignorer le mode de la maison pour tous les ouvrants.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignorer les alarmes pour tous les ouvrants.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignorer l’élévation du soleil pour tous les ouvrants.
+`force_open` | True | string | | Force l’ouverture de tous les ouvrants si une ou plusieurs est active.
+`force_close` | True | string | | Force la fermeture de tous les ouvrants si une ou plusieurs est active.
+`force_ajar` | True | string | | Force l’entrouverture de tous les ouvrants si une ou plusieurs est active.
 `wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, tous les ouvrant ne s’ouvriront qu’au moment où une de celle-ci est activée.
-`take_over_control` | True | string | True | Si un des ouvrants est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+`take_over_control` | True | string | True | Si un des ouvrants est modifié manuellement, le script ne modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
 ### rooms
 key | optional | type | default | description
 -- | -- | -- | -- | --
-`id de la pièce` | False | | | The module name of the app.
+`id de la pièce` | False | | | ID de la pièce.
 `covers` | False | | | Liste des ouvrants.
 `open` | True | int | 100 | Valeur en pourcentage pour ouvrir les ouvrants de la pièce.
 `close` | True | int | 0 | Valeur en pourcentage pour fermer les ouvrants de la pièce.
 `ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir les ouvrants de la pièce.
-`sun_elevation` | True | int | | Elevation du soleil à laquelle les ouvrants de la pièce s’ouvrent ou se ferment.
-`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour les ouvrants de la pièce.
-`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour les ouvrants de la pièce.
-`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour les ouvrants de la pièce.
-`force_open` | True | string | | Force l’ouverture de tout les ouvrants de la pièce si une ou plusieurs est active.
-`force_close` | True | string | | Force la fermeture de tout les ouvrants de la pièce si une ou plusieurs est active.
-`force_ajar` | True | string | | Force l’entrouverture de tout les ouvrants de la pièce si une ou plusieurs est active.
+`sun_elevation` | True | int | | Elévation du soleil à laquelle les ouvrants de la pièce s’ouvrent ou se ferment.
+`ignore_presence` | True | string | False | Définir à « True » pour ignorer le mode de la maison pour les ouvrants de la pièce.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignorer les alarmes pour les ouvrants de la pièce.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignorer l’élévation du soleil pour les ouvrants de la pièce.
+`force_open` | True | string | | Force l’ouverture de tous les ouvrants de la pièce si une ou plusieurs est active.
+`force_close` | True | string | | Force la fermeture de tous les ouvrants de la pièce si une ou plusieurs est active.
+`force_ajar` | True | string | | Force l’entrouverture de tous les ouvrants de la pièce si une ou plusieurs est active.
 `wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, les ouvrant de la pièce ne s’ouvriront qu’au moment où une de celle-ci est activée.
-`take_over_control` | True | string | True | Si un des ouvrants de la pièce est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+`take_over_control` | True | string | True | Si un des ouvrants de la pièce est modifié manuellement, le script ne modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
 ### covers
 key | optional | type | default | description
 -- | -- | -- | -- | --
@@ -77,15 +77,15 @@ key | optional | type | default | description
 `open` | True | int | 100 | Valeur en pourcentage pour ouvrir cet ouvrant.
 `close` | True | int | 0 | Valeur en pourcentage pour fermer cet ouvrant.
 `ajar` | True | int | 50 | Valeur en pourcentage pour entrouvrir cet ouvrant.
-`sun_elevation` | True | int | | Elevation du soleil à laquelle cet ouvrant s’ouvre ou se ferme.
-`ignore_presence` | True | string | False | Définir à « True » pour ignoré le mode de la maison pour cet ouvrant.
-`ignore_alarms` | True | string | False | Définir à « True » pour ignoré les alarmes pour cet ouvrant.
-`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignoré l’élévation du soleil pour cet ouvrant.
+`sun_elevation` | True | int | | Elévation du soleil à laquelle cet ouvrant s’ouvre ou se ferme.
+`ignore_presence` | True | string | False | Définir à « True » pour ignorer le mode de la maison pour cet ouvrant.
+`ignore_alarms` | True | string | False | Définir à « True » pour ignorer les alarmes pour cet ouvrant.
+`ignore_sun_elevation` | True | string | False | Définir à « True » pour ignorer l’élévation du soleil pour cet ouvrant.
 `force_open` | True | string | | Force l’ouverture de cet ouvrant si une ou plusieurs est active.
 `force_close` | True | string | | Force la fermeture de cet ouvrant si une ou plusieurs est active.
 `force_ajar` | True | string | | Force l’entrouverture de cet ouvrant si une ou plusieurs est active.
 `wait_for_open` | True | string | | Si une ou plusieurs entités sont définies, cet ouvrant ne s’ouvrira qu’au moment où une de celle-ci est activée.
-`take_over_control` | True | string | True | Si cet ouvrant est modifié manuellement, le script ne le modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
+`take_over_control` | True | string | True | Si cet ouvrant est modifié manuellement, le script ne modifiera plus ce dernier jusqu’à ce qu’il retourne à sa position normalement voulue par l’automatisation.
 ### Exemple complexe
 ```yaml
 CoversFullAutomation:
