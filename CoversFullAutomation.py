@@ -111,7 +111,11 @@ class CoversFullAutomation(hass.Hass):
       self.debug_log(f'{entity} : {old} -> {new}')
       listCovers = {}
       for cover in self.covers:
-        if kwargs["trigger_type"] == "sun_elevation":
+        if  (
+            kwargs["trigger_type"] == "sun_elevation" or 
+            kwargs["trigger_type"] == "alarms" or 
+            kwargs["trigger_type"] == "presence"
+            ):
           listCovers[cover] = self.covers[cover]
         elif entity in self.covers[cover][kwargs["trigger_type"]]:
           listCovers[cover] = self.covers[cover]
